@@ -1,16 +1,18 @@
 export const BrandLogoLeft = () => {
   return (
-    <a href="/" aria-label="Home" className="ml-2 flex items-center">
-      {/* TEMPLATE: Replace /logo.png with your brand logo */}
+    <a href="/" aria-label="Sueños Compartidos - Home" className="flex items-center gap-3">
       <img 
         src="/logo.png"
-        alt="Logo"
-        className="h-8 w-auto object-contain" 
+        alt="Sueños Compartidos"
+        className="h-12 w-auto object-contain" 
         onError={(e) => {
           e.currentTarget.style.display = 'none';
-          e.currentTarget.parentElement!.innerHTML = '<span class="text-xl font-bold text-black">YourBrand</span>';
         }}
       />
+      <div className="flex flex-col">
+        <span className="text-xl font-bold text-foreground leading-tight">Sueños</span>
+        <span className="text-sm text-primary font-semibold leading-tight">Compartidos</span>
+      </div>
     </a>
   )
 }

@@ -62,29 +62,29 @@ export const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
     <Sheet open={isOpen} onOpenChange={onClose}>
       <SheetContent side="right" className="w-full sm:w-96 p-0" aria-describedby="cart-description">
         <div className="flex flex-col h-full">
-          <SheetHeader className="p-6 border-b">
-            <SheetTitle className="flex items-center gap-2">
-              Shopping Cart
-              <Link to="/carrito" onClick={onClose} className="hover:opacity-70 transition-opacity">
+          <SheetHeader className="p-6 border-b bg-muted/30">
+            <SheetTitle className="flex items-center gap-2 text-xl font-bold">
+              Tu Carrito
+              <Link to="/carrito" onClick={onClose} className="hover:text-primary transition-colors">
                 <ExternalLink className="h-4 w-4" />
               </Link>
             </SheetTitle>
             <div id="cart-description" className="sr-only">
-              Review and modify the products in your shopping cart
+              Revisa y modifica los productos en tu carrito de compras
             </div>
           </SheetHeader>
 
           {state.items.length === 0 ? (
             <div className="flex-1 flex items-center justify-center p-6">
               <div className="text-center">
-                <h3 className="text-lg font-medium text-foreground mb-2">
-                  Your cart is empty
+                <h3 className="text-lg font-semibold text-foreground mb-2">
+                  Tu carrito está vacío
                 </h3>
                 <p className="text-muted-foreground mb-4">
-                  Add some products to start your purchase
+                  Agrega algunos productos para empezar tu compra
                 </p>
-                <Button onClick={onClose} variant="outline">
-                  Continue Shopping
+                <Button onClick={onClose} className="bg-primary hover:bg-primary/90">
+                  Seguir Comprando
                 </Button>
               </div>
             </div>
@@ -160,21 +160,21 @@ export const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
               </div>
 
               {/* Order Summary */}
-              <div className="border-t p-6">
+              <div className="border-t p-6 bg-muted/30">
                 <div className="space-y-3">
-                  <div className="flex justify-between font-semibold text-lg">
+                  <div className="flex justify-between font-bold text-xl">
                     <span>Total</span>
-                    <span>${finalTotal.toFixed(2)}</span>
+                    <span className="text-primary">${finalTotal.toFixed(2)}</span>
                   </div>
                 </div>
 
                 <Button 
-                  className="w-full mt-4" 
+                  className="w-full mt-6 bg-primary hover:bg-primary/90 font-semibold text-lg py-6" 
                   size="lg" 
                   onClick={handleCreateCheckout} 
                   disabled={isCreatingOrder}
                 >
-                  {isCreatingOrder ? 'Processing...' : 'Checkout'}
+                  {isCreatingOrder ? 'Procesando...' : 'Ir a Pagar'}
                 </Button>
               </div>
             </>

@@ -16,30 +16,32 @@ export const NewsletterSection = () => {
   return (
     <HeadlessNewsletter>
       {(logic) => (
-        <section className="bg-muted/30 py-16 border-y">
-          <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section className="bg-gradient-to-b from-muted/20 to-muted/40 py-20 border-y border-border">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             {logic.success ? (
-              <div className="space-y-4">
+              <div className="space-y-6">
                 <div className="flex justify-center">
-                  <div className="bg-primary/10 rounded-full p-3">
-                    <Mail className="h-8 w-8 text-primary" />
+                  <div className="bg-primary/20 rounded-full p-6">
+                    <Mail className="h-12 w-12 text-primary" />
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">
-                  ¡Gracias por suscribirte!
+                <h3 className="text-3xl font-bold text-foreground">
+                  ¡Bienvenido a la familia!
                 </h3>
-                <p className="text-muted-foreground">
-                  Recibirás nuestras mejores ofertas y promociones pronto.
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Gracias por unirte. Pronto recibirás ideas para crear momentos especiales 
+                  y ofertas exclusivas en nuestros pijamas matching.
                 </p>
               </div>
             ) : (
-              <div className="space-y-6">
-                <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-foreground">
-                    ¿Quieres recibir correos promocionales?
+              <div className="space-y-8">
+                <div className="space-y-4">
+                  <h3 className="text-3xl md:text-4xl font-bold text-foreground">
+                    Inspírate con ideas para crear tradiciones
                   </h3>
-                  <p className="text-lg text-muted-foreground">
-                    Suscríbete a nuestro boletín y obtén ofertas exclusivas
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Recibe ideas creativas, consejos y ofertas especiales para hacer 
+                    cada momento en familia más memorable
                   </p>
                 </div>
                 
@@ -48,7 +50,7 @@ export const NewsletterSection = () => {
                     e.preventDefault();
                     logic.handleSubscribe();
                   }}
-                  className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+                  className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto"
                 >
                   <Input 
                     type="email"
@@ -56,20 +58,21 @@ export const NewsletterSection = () => {
                     value={logic.email}
                     onChange={(e) => logic.setEmail(e.target.value)}
                     disabled={logic.isSubmitting}
-                    className="flex-1"
+                    className="flex-1 h-12 text-base border-2"
                     required
                   />
                   <Button 
                     type="submit"
                     disabled={logic.isSubmitting}
-                    className="sm:w-auto"
+                    size="lg"
+                    className="sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8"
                   >
-                    {logic.isSubmitting ? 'Suscribiendo...' : 'Suscribirse'}
+                    {logic.isSubmitting ? 'Suscribiendo...' : 'Suscribirme'}
                   </Button>
                 </form>
                 
                 {logic.error && (
-                  <p className="text-sm text-destructive">
+                  <p className="text-sm text-destructive font-medium">
                     {logic.error}
                   </p>
                 )}
