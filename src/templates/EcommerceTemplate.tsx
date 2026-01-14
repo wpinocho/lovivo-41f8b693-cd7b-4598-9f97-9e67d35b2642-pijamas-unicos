@@ -173,19 +173,3 @@ export const EcommerceTemplate = ({
     </>
   )
 }
-
-  return (
-    <>
-      <PageTemplate 
-        header={header}
-        footer={footer}
-        className={className}
-        layout={layout}
-      >
-        {children}
-      </PageTemplate>
-      
-      {showCart && <FloatingCart />}
-    </>
-  )
-}
